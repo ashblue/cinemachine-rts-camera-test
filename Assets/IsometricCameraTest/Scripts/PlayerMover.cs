@@ -6,12 +6,14 @@ namespace CleverCrow.IsometricCameras {
     public class PlayerMover : MonoBehaviour {
         public NavMeshAgent agent;
         public List<Transform> moveQueue = new List<Transform>();
+        public ProjectForwardPosition projector;
 
         private int _moveIndex;
 
         private void Update () {
             if (agent.pathPending || agent.remainingDistance > agent.stoppingDistance) return;
 
+            projector.ClearDamp();
             agent.SetDestination(GetNextPosition());
         }
 
