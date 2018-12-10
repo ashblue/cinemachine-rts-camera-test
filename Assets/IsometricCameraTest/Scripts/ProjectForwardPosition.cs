@@ -16,13 +16,6 @@ namespace CleverCrow.IsometricCameras {
             var distance = heading.magnitude;
             var direction = heading / distance;
             
-            // Works but there are a few problems
-            // Turns are too harsh, needs to slowly follow the target point at turns
-            // Dips in a way it shouldn't vertically
-            
-            // Ideas to fix
-            
-            
             var targetPos = transform.position + direction * maxForwardDistance;
             if (Vector3.Distance(transform.position, agent.destination) < maxForwardDistance) {
                 targetPos = agent.destination;
@@ -35,6 +28,7 @@ namespace CleverCrow.IsometricCameras {
 
         public void ClearDamp () {
             damp = Vector3.zero;
+            point.transform.position = transform.position;
         }
     }
 }
