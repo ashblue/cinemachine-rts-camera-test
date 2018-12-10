@@ -9,11 +9,6 @@ namespace CleverCrow.IsometricCameras {
 
         private int _moveIndex;
 
-        private void Start () {
-            agent.SetDestination(GetNextPosition());
-            _moveIndex++;
-        }
-
         private void Update () {
             if (agent.pathPending || agent.remainingDistance > agent.stoppingDistance) return;
 

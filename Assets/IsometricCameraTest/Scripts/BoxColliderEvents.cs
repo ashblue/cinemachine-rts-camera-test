@@ -8,7 +8,6 @@ namespace CleverCrow.IsometricCameras {
         public UnityEvent onExit;
         
         private void OnTriggerEnter (Collider other) {
-            Debug.Log(other.gameObject);
             if (!other.CompareTag("Player")) return;
             
             onEnter.Invoke();

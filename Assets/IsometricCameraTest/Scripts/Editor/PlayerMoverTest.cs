@@ -31,6 +31,16 @@ namespace CleverCrow.IsometricCameras.Editor {
                 
                 Assert.AreEqual(1, _mover.GetNextIndex());
             }
+            
+            [Test]
+            public void It_should_return_two_on_third_call () {
+                _mover.moveQueue.Add(new GameObject().transform);
+                _mover.moveQueue.Add(new GameObject().transform);
+                _mover.GetNextIndex();
+                _mover.GetNextIndex();
+
+                Assert.AreEqual(2, _mover.GetNextIndex());
+            }
                         
             [Test]
             public void It_should_reset_to_zero_when_exceeding_the_array_length () {
